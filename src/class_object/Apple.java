@@ -8,6 +8,14 @@ public class Apple {
         // Each time you created a new object this block will be executed
 
     }
+    //  OVERLOADING CONSTRUCTOR WITH 3 ARGS
+
+
+    public Apple(String color, double price, String taste) {
+        this.color = color;
+        this.price = price;
+        this.taste = taste;
+    }
 
     //instance variables - fields - states - attributes
     public String color; // each object "Apple" will have a color
@@ -26,4 +34,6 @@ public class Apple {
                 ", taste='" + taste + '\'' +
                 '}';
     }
+
+
 }
