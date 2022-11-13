@@ -2,6 +2,7 @@ package class_object;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class CarTest {
@@ -53,6 +54,16 @@ public class CarTest {
         System.out.println("There is " + blackCars + " black cars in ArrayList");
         System.out.println("Cheapest car is: "  + cheapestCar);
 
-
+//        Iterator <Car> iterator = cars.iterator();
+//        while (iterator.hasNext()){
+//            if(iterator.next().make.equals("Tesla")) iterator.remove();
+//        }
+        cars.removeIf(car -> car.make.equals("Tesla"));
+        System.out.println("We have " + cars.size() + " left");
+        int bbCounter = 0;
+        for (Car car : cars) {
+            if (car.color.equals("Blue") || car.color.equals("Beige") || car.year == 2023) bbCounter++;
+        }
+        System.out.println(bbCounter);
     }
 }

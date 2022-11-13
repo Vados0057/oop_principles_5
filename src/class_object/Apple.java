@@ -4,7 +4,7 @@ public class Apple {
 
   // default constructor is provided by Java to create a zero arg object
 
-    public Apple(){    // it was already inside of class
+    public Apple(){    // it was already inside the class
         // Each time you created a new object this block will be executed
 
     }
@@ -34,6 +34,4 @@ public class Apple {
                 ", taste='" + taste + '\'' +
                 '}';
     }
-
-
 }
