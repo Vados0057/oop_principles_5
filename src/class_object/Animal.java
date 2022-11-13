@@ -3,7 +3,8 @@ package class_object;
 public class Animal {
     public Animal() {
     }
-
+    //            means can't change anymore
+    public static final boolean isExtinct = true;
     public String name;
     public int age;
     public boolean isCarnivore;
@@ -59,7 +60,8 @@ public class Animal {
         System.out.println(a6);
         System.out.println(a7);
 
-
+        System.out.println("\n--------Static instance variables--------\n");
+        System.out.println(Animal.isExtinct); // true
 
 
 
