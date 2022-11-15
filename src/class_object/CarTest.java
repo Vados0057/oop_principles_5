@@ -1,26 +1,12 @@
 package class_object;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.Scanner;
 
 public class CarTest {
     public static void main(String[] args) {
-
-
-        // Scanner input = new Scanner(System.in);
-        //        System.out.println("Please enter a Color:");
-//        car1.color = input.nextLine();
-//        System.out.println("Please enter a Make:");
-//        car1.make = input.nextLine();
-//        System.out.println("Please enter a Model:");
-//        car1.model = input.nextLine();
-//        System.out.println("Please enter a Year:");
-//        car1.year = input.nextInt();
-//        System.out.println("Please enter a Price:");
-//        car1.price = input.nextDouble();
-
 
         Car car1 = new Car("White", "BMW", "X6", 2020, 15000);
         Car car2 = new Car("Black", "Tesla", "S", 2023, 20000);
@@ -34,36 +20,67 @@ public class CarTest {
         cars.add(car3);
         cars.add(car4);
         cars.add(car5);
-        System.out.println("\n\t\t\t PRINT EACH CAR\n");
+
+
+        System.out.println("\n------Print each car-----\n");
         cars.forEach(System.out::println);
 
-        System.out.println("\n\t\tFind Most expensive car and chipset car\n");
-        Car mostExpensiveCar = cars.get(0);
-        Car cheapestCar = cars.get(0);
-        int blackCars = 0;
-        for (Car car : cars) {
-            if (car.price > mostExpensiveCar.price) mostExpensiveCar = car;
-            if (car.color.equals("Black")) {
-                blackCars++;
-            }
-            for (Car c : cars) {
-                if (c.price < cheapestCar.price) cheapestCar = c;
-            }
-        }
-        System.out.println("Most expensive car is: " + mostExpensiveCar);
-        System.out.println("There is " + blackCars + " black cars in ArrayList");
-        System.out.println("Cheapest car is: "  + cheapestCar);
+        /*
+        Find the most expensive car
+        Find the cheapest car
+        Count how many cars are Black -> 2
+        Remove all the cars that has price more than or equal to 20k
+         */
 
-//        Iterator <Car> iterator = cars.iterator();
-//        while (iterator.hasNext()){
-//            if(iterator.next().make.equals("Tesla")) iterator.remove();
-//        }
-        cars.removeIf(car -> car.make.equals("Tesla"));
-        System.out.println("We have " + cars.size() + " left");
-        int bbCounter = 0;
+        System.out.println("\n--------Most expensive-------\n");
+        Car mostExpensiveCar = cars.get(0);
+
         for (Car car : cars) {
-            if (car.color.equals("Blue") || car.color.equals("Beige") || car.year == 2023) bbCounter++;
+            if(car.price > mostExpensiveCar.price) mostExpensiveCar = car;
         }
-        System.out.println(bbCounter);
+
+        System.out.println(mostExpensiveCar);
+
+        System.out.println("\n--------Count Black cars-------\n");
+        int countBlack = 0;
+
+        for (Car car : cars) {
+            if(car.color.equals("Black")) countBlack++;
+        }
+
+        System.out.println(countBlack);
+
+        System.out.println("\n--------Count Black cars with Stream-------\n");
+        System.out.println(cars.stream().filter(car -> car.color.equals("Black")).count()); // 2
+
+
+        /*
+        Count all the cars that are Blue or Beige or 2023 -> 3
+         */
+
+        int countBB2023 = 0;
+
+        for (Car car : cars) {
+            if(car.color.equals("Blue") || car.color.equals("Beige") || car.year == 2023) countBB2023++;
+        }
+
+        System.out.println(countBB2023);
+
+        /*
+        Remove all the cars that are Tesla and print the size of the cars
+        Expected:
+        3
+         */
+
+        /*
+        Iterator<Car> iterator = cars.iterator();
+        while(iterator.hasNext()){
+            if(iterator.next().make.equals("Tesla")) iterator.remove();
+        }
+         */
+
+        cars.removeIf(car -> car.make.equals("Tesla"));
+
+        System.out.println(cars.size()); // 3
     }
 }
