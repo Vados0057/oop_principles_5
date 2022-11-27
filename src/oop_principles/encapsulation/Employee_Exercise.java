@@ -48,16 +48,9 @@ public class Employee_Exercise {
         Scrum Master = "Jeremiah" works at "USBank"
          */
 
-        int teslaEmployees = 0;
-        int verizonEmployees = 0;
-        int usbankEmployees = 0;
+        int teslaEmployees = 0, verizonEmployees = 0, usbankEmployees = 0;
 
-       int tester = 0;
-       int developer = 0;
-       int manager = 0;
-       int designer = 0;
-       int systemArchitect = 0;
-       int scrumMaster = 0;
+       int tester = 0, developer = 0, manager = 0, designer = 0, systemArchitect = 0, scrumMaster = 0;
 
        Employee managerEmployee = new Employee();
        Employee systemArchitectEmployee = new Employee();
@@ -68,16 +61,29 @@ public class Employee_Exercise {
             else if (employee.getCompany().getName().equals("USBank")) usbankEmployees++;
             else verizonEmployees++;
 
-            if (employee.getJobPosition().equals("Tester")) tester++;
-            else if (employee.getJobPosition().equals("Developer")) developer++;
-            else if (employee.getJobPosition().equals("Manager")) manager++;
-            else if (employee.getJobPosition().equals("Designer")) designer++;
-            else if (employee.getJobPosition().equals("System Architect"))  systemArchitect++;
-            else scrumMaster++;
-
-            if (employee.getJobPosition().equals("Manager")) managerEmployee = employee;
-            else if (employee.getJobPosition().equals("System Architect")) systemArchitectEmployee = employee;
-            else if (employee.getJobPosition().equals("Scrum Master")) scrumMasterEmployee = employee;
+            switch (employee.getJobPosition()) {
+                case "Tester":
+                    tester++;
+                    break;
+                case "Developer":
+                    developer++;
+                    break;
+                case "Manager":
+                    manager++;
+                    managerEmployee = employee;
+                    break;
+                case "Designer":
+                    designer++;
+                    break;
+                case "System Architect":
+                    systemArchitect++;
+                    systemArchitectEmployee = employee;
+                    break;
+                default:
+                    scrumMaster++;
+                    scrumMasterEmployee = employee;
+                    break;
+            }
 
         }
 
@@ -105,9 +111,9 @@ public class Employee_Exercise {
         System.out.println("Younger Designer = " + youngestDesigner.getFullName() + " with the age of " + youngestDesigner.getAge());
 
         System.out.println("\n---------Employee by profession---------\n");
-        System.out.println("Manager = " + managerEmployee.getFullName()+ " works at " + managerEmployee.getCompany().getName());
-        System.out.println("System Architect = " + systemArchitectEmployee.getFullName()+ " works at " + systemArchitectEmployee.getCompany().getName());
-        System.out.println("Scrum Master = " + scrumMasterEmployee.getFullName()+ " works at " + scrumMasterEmployee.getCompany().getName());
+        System.out.println(managerEmployee.getJobPosition() + " = " + managerEmployee.getFullName()+ " works at " + managerEmployee.getCompany().getName());
+        System.out.println(systemArchitectEmployee.getJobPosition() + " = " + systemArchitectEmployee.getFullName()+ " works at " + systemArchitectEmployee.getCompany().getName());
+        System.out.println(scrumMasterEmployee.getJobPosition() + " = " + scrumMasterEmployee.getFullName()+ " works at " + scrumMasterEmployee.getCompany().getName());
 
     }
 }
