@@ -20,6 +20,7 @@ public class iPhone extends Phone implements Camera,WiFi{
     }
 
 
+
     @Override
     public void takesPhoto() {
         System.out.println("iPhone way of taking photos");

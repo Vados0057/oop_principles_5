@@ -1,5 +1,7 @@
 package oop_principles.abstraction;
 
+import java.util.ArrayList;
+
 public class TestAbstraction {
     public static void main(String[] args) {
 
@@ -19,7 +21,6 @@ public class TestAbstraction {
         Samsung s1 = new Samsung();
         s1.call();
         s1.text();
-
 
 
         Samsung s2 = new Samsung(64, "Galaxy S 20", "Black", 700.00);
