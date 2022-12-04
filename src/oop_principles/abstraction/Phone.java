@@ -8,9 +8,10 @@ public abstract class Phone {
     -instance variables
     -blocks
      */
+
     public Phone(){}
 
-    public Phone(int storage, String model, String color, double price) {
+    public Phone(int storage, String model, String color, double price){
         this.storage = storage;
         this.model = model;
         this.color = color;
@@ -24,6 +25,12 @@ public abstract class Phone {
 
     public abstract void call();
     public abstract void text();
+
+    public static void rings(){
+        System.out.println("Phone Ringing");
+    }
+
+
 
     @Override
     public String toString() {
