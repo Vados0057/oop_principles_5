@@ -45,6 +45,7 @@ public class PolymorphicCollection {
             System.out.println(a.getClass().getSimpleName());
             a.eat();a.eat("str");a.sleep();
         }
+        System.out.println();
 
         System.out.println("\n\t*Store all above object in a ArrayList*\n");
         new ArrayList<>(Arrays.asList(animals)).forEach(Animal::eat);
